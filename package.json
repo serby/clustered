@@ -1,0 +1,25 @@
+{ "author": "Paul Serby <paul@serby.net>"
+, "name": "clustered"
+, "description": "Cluster your server"
+, "version": "0.0.1"
+, "tags": []
+, "repository":
+  { "type": "git"
+  , "url": "git@github.com:serby/clustered"
+  }
+, "main": ""
+, "scripts":
+  { "test": "make test"
+  , "prepublish": "make qa && npm prune"
+  }
+, "engines":
+  { "node": ">=0.8"
+  }
+, "dependencies":
+  {
+  }
+, "devDependencies":
+  { "mocha": "*"
+  , "should": "*"
+  }
+}
