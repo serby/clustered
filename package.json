@@ -10,8 +10,7 @@
   },
   "main": "./clustered.js",
   "scripts": {
-    "test": "make test",
-    "prepublish": "make qa && npm prune"
+    "test": "make test"
   },
   "engines": {
     "node": ">=0.8"
