@@ -11,7 +11,7 @@ module.exports = function (clusterFn, opts) {
   // Cluster is used in all but the development environment
   if ((process.env.NODE_ENV !== undefined) && (cluster.isMaster)) {
 
-    options.logger.info('Forking ' + options.size + ' cluster process, one per CPU')
+    options.logger.info('Forking ' + options.size + ' cluster process(es)')
 
     // Create one instance of the app (i.e. one process) per CPU
     for (var i = 0; i < options.size; i += 1) {
