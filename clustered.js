@@ -19,7 +19,7 @@ module.exports = function (clusterFn, opts) {
     }
 
     // Report child process death
-    cluster.on('death', function (worker) {
+    cluster.on('exit', function (worker) {
 
       options.logger.error('Worker ' + worker.pid + ' died', worker)
 
