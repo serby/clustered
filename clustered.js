@@ -21,7 +21,7 @@ module.exports = function (clusterFn, opts) {
     // Report child process death
     cluster.on('exit', function (worker, code, signal) {
 
-      options.logger.error('Worker ' + worker.pid + ' died with code ' + code, worker)
+      options.logger.error('Worker ' + worker.process.pid + ' died with code ' + code, worker)
 
       if (code === null) {
         cluster.fork()
