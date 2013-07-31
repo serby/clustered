@@ -19,14 +19,14 @@ module.exports = function (clusterFn, opts) {
     }
 
     // Report child process death
-    cluster.on('death', function (worker) {
+    cluster.on('exit', function (worker, code, signal) {
 
-      options.logger.error('Worker ' + worker.pid + ' died', worker)
+      options.logger.error('Worker ' + worker.process.pid + ' died with code ' + code, worker)
 
-      if (worker.signalCode === null) {
+      if (code === null) {
         cluster.fork()
       } else {
-        options.logger.error('Not forking new process because ' + worker.signalCode + ' was given')
+        options.logger.error('Not forking new process because ' + signal + ' was given')
       }
 
     })
