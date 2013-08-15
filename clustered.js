@@ -19,20 +19,22 @@ module.exports = function (clusterFn, opts) {
     }
 
     // Report child process death
-    cluster.on('death', function (worker) {
-
-      options.logger.error('Worker ' + worker.pid + ' died', worker)
-
-      if (worker.signalCode === null) {
-        cluster.fork()
-      } else {
-        options.logger.error('Not forking new process because ' + worker.signalCode + ' was given')
-      }
-
+    cluster.on('exit', function (worker) {
+      forkNewProcess(worker, worker.process)
     })
 
   } else {
     options.logger.info('Running in PID ' + process.pid)
     clusterFn()
+  }
+
+  function forkNewProcess(worker, process) {
+    options.logger.error('Worker ' + process.pid + ' died', worker)
+
+    if (process.signalCode === null) {
+      cluster.fork()
+    } else {
+      options.logger.error('Not forking new process because ' + process.signalCode + ' was given')
+    }
   }
 }
