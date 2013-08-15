@@ -18,14 +18,9 @@ module.exports = function (clusterFn, opts) {
       cluster.fork()
     }
 
-    // Report child process death (Node >= 0.8)
+    // Report child process death
     cluster.on('exit', function (worker) {
       forkNewProcess(worker, worker.process)
-    })
-
-    // Report child process death (Node < 0.8)
-    cluster.on('death', function (worker) {
-      forkNewProcess(worker, worker)
     })
 
   } else {
