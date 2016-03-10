@@ -2,19 +2,18 @@
   "author": "Paul Serby <paul@serby.net>",
   "name": "clustered",
   "description": "Cluster your server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "tags": [],
   "repository": {
     "type": "git",
     "url": "git@github.com:serby/clustered"
   },
   "publishConfig": {
-    "registry":"http://registry.npmjs.org"
+    "registry": "http://registry.npmjs.org"
   },
   "main": "./clustered.js",
   "engines": {
     "node": ">=0.10"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
