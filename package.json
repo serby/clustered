@@ -8,18 +8,13 @@
     "type": "git",
     "url": "git@github.com:serby/clustered"
   },
+  "publishConfig": {
+    "registry":"http://registry.npmjs.org"
+  },
   "main": "./clustered.js",
-  "scripts": {
-    "test": "make test"
-  },
   "engines": {
-    "node": ">=0.8"
-  },
-  "dependencies": {
-    "lodash": "~1"
+    "node": ">=0.10"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
   }
 }

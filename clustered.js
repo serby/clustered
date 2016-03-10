@@ -1,12 +1,13 @@
 var cluster = require('cluster')
   , cpus = require('os').cpus()
-  , _ = require('lodash')
 
 module.exports = function (clusterFn, opts) {
-  var options = _.extend(
-    { size: cpus.length // Default to the number of CPUs
-    , logger: console
-    }, opts)
+  if (!opts) opts = {}
+  var i
+    , options =
+    { size: opts.length || cpus.length // Default to the number of CPUs
+    , logger: opts.logger || console
+    }
 
   // Cluster is used in all but the development environment
   if ((process.env.NODE_ENV !== undefined) && (cluster.isMaster)) {
@@ -14,7 +15,7 @@ module.exports = function (clusterFn, opts) {
     options.logger.info('Forking ' + options.size + ' cluster process(es)')
 
     // Create one instance of the app (i.e. one process) per CPU
-    for (var i = 0; i < options.size; i += 1) {
+    for (i = 0; i < options.size; i += 1) {
       cluster.fork()
     }
 
@@ -28,7 +29,7 @@ module.exports = function (clusterFn, opts) {
     clusterFn()
   }
 
-  function forkNewProcess(worker, process) {
+  function forkNewProcess (worker, process) {
     options.logger.error('Worker ' + process.pid + ' died', worker)
 
     if (process.signalCode === null) {
