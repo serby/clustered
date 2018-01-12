@@ -1,11 +1,10 @@
 var cluster = require('cluster')
-  , cpus = require('os').cpus()
 
 module.exports = function (clusterFn, opts) {
   if (!opts) opts = {}
   var i
     , options =
-    { size: opts.size || cpus.length // Default to the number of CPUs
+    { size: opts.size || 2 // Default to the number of CPUs
     , logger: opts.logger || console
     }
 
