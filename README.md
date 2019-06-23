@@ -2,7 +2,7 @@
 
 Cluster your server
 
-[![build status](https://secure.travis-ci.org/serby/clustered.png)](http://travis-ci.org/serby/clustered)
+[![build status](https://secure.travis-ci.org/serby/clustered.png)](http://travis-ci.org/serby/clustered) [![Greenkeeper badge](https://badges.greenkeeper.io/serby/clustered.svg)](https://greenkeeper.io/)
 
 ## Installation
 
