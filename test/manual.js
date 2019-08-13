@@ -5,11 +5,16 @@
  * exception. The single process should die, then a new process forked in it's
  * place, along with logging.
  */
-var clustered = require('../clustered')
-  , http = require('http')
+var clustered = require('../clustered'),
+  http = require('http')
 
-clustered(function () {
-  http.createServer(function () {
-    throw 'Exception'
-  }).listen(5545, function () { })
-}, { size: 1 })
+clustered(
+  function() {
+    http
+      .createServer(function() {
+        throw 'Exception'
+      })
+      .listen(5545, function() {})
+  },
+  { size: 1 }
+)
