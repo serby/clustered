@@ -3,7 +3,6 @@
   "name": "clustered",
   "description": "Cluster your server",
   "version": "1.0.1",
-  "tags": [],
   "repository": {
     "type": "git",
     "url": "git@github.com:serby/clustered"
@@ -13,8 +12,9 @@
   },
   "main": "./clustered.js",
   "engines": {
-    "node": ">=0.10"
+    "node": ">=4"
   },
+  "license": "ISC",
   "devDependencies": {
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
