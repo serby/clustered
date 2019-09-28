@@ -38,7 +38,5 @@ module.exports = function(clusterFn, opts) {
         (process.exitCode ? ' ' + process.exitCode : '') +
         (process.signalCode ? ' ' + process.signalCode : '')
     )
-
-    const newWorker = cluster.fork()
   }
 }

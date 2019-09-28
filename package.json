@@ -16,13 +16,14 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "prettier": "^1.18.2"
   },
   "dependencies": {},
   "scripts": {
-    "qa:lint:js": "eslint --cache --ext '.js,.jsx' -f unix .",
+    "lint": "eslint --cache --ext '.js,.jsx' -f unix .",
     "prettier": "prettier --write --ignore-path .eslintignore './**/*.js*'"
   }
 }
