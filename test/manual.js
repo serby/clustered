@@ -16,5 +16,5 @@ clustered(
       })
       .listen(5545, function() {})
   },
-  { size: 1 }
+  { size: 2 }
 )
