@@ -38,5 +38,6 @@ module.exports = function(clusterFn, opts) {
         (process.exitCode ? ' ' + process.exitCode : '') +
         (process.signalCode ? ' ' + process.signalCode : '')
     )
+    cluster.fork()
   }
 }
