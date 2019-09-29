@@ -11,9 +11,10 @@ Cluster your server
 ## Usage
 
 ## Run test
+
 Manual test available. Run the test script
 
-      NODE_ENV=test nave use 4.0 node test/manual
+      NODE_ENV=test node test/manual
 
 followed by a number of cURL requests
 
@@ -28,7 +29,9 @@ up to [auto format code in your editor](https://prettier.io/docs/en/editors.html
 or manually format code before committing with `yarn prettier`.
 
 ## Credits
+
 [Paul Serby](https://github.com/serby/) follow me on twitter [@serby](http://twitter.com/serby)
 
-## Licence
-Licensed under the [New BSD License](http://opensource.org/licenses/bsd-license.php)
+## License
+
+Licensed under the [ISC](https://opensource.org/licenses/ISC)
