@@ -23,21 +23,25 @@ module.exports = function(clusterFn, opts) {
     }
     // Report child process death
     cluster.on('exit', function(worker) {
-      forkNewProcess(worker, worker.process)
+      forkNewProcess(worker.process)
     })
   } else {
     options.logger.info('Forked ' + process.pid)
     clusterFn()
   }
 
-  function forkNewProcess(worker, process) {
-    options.logger.warn(
-      'Worker ' +
-        process.pid +
-        ' died' +
-        (process.exitCode ? ' ' + process.exitCode : '') +
-        (process.signalCode ? ' ' + process.signalCode : '')
-    )
+  function forkNewProcess(process) {
+    var exitCode = process.exitCode
+    var signalCode = process.signalCode
+    if (exitCode || (signalCode && signalCode !== 'SIGTERM')) {
+      options.logger.warn(
+        'Worker ' +
+          process.pid +
+          ' died' +
+          (exitCode ? ' ' + exitCode : '') +
+          (signalCode ? ' ' + signalCode : '')
+      )
+    }
     cluster.fork()
   }
 }
